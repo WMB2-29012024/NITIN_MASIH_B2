@@ -3,5 +3,3 @@
 /* Question 18: Write a for loop to find the factorial of a given number.
 */
 
-const num = 5;
-

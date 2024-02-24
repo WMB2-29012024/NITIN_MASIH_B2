@@ -4,4 +4,8 @@
 */
 
 const strArr = ["banana", "apple", "orange", "grape", "kiwi"];
-
+let newStr = ""
+for(let i= 0;i<=strArr.length-1;i++){
+      newStr += strArr[i]
+}
+console.log(newStr);

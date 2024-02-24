@@ -5,3 +5,8 @@
 
 const strArr = ["banana", "apple", "orange", "grape", "kiwi"];
 
+for(let i = 0;i<=strArr.length-1;i++){
+      if(strArr[i].startsWith("a")){
+            console.log(strArr[i]);
+      }
+}
