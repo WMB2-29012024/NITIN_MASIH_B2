@@ -4,3 +4,4 @@
 */
 
 
+console.log(Number.MAX_SAFE_INTEGER); // Output: 9007199254740991

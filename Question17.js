@@ -4,3 +4,7 @@
 */
 
 // Use the .split() method with a limit
+
+const string = "A new string with words."
+
+console.log(string.split(" ",3))

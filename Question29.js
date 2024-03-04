@@ -4,3 +4,6 @@
 */
 
 // Use the .charAt() method with a positive index
+const str = "Hello, World!";
+const char = str.charAt(2);
+console.log(char); 

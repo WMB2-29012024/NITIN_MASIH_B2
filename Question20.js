@@ -4,3 +4,7 @@
 */
 
 // Use the .endsWith() method
+
+const string = "A new string with words"
+
+console.log(string.endsWith("words"))

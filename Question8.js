@@ -4,3 +4,6 @@
 */
 
 
+const value = "hello"
+
+console.log(isNaN(value))

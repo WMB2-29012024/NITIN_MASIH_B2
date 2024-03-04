@@ -4,3 +4,6 @@
 */
 
 // Use the .codePointAt() method
+const str = "Hello, World!";
+const char = str.codePointAt(3);
+console.log(char); 

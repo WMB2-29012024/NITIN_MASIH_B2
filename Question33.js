@@ -4,3 +4,6 @@
 */
 
 // Use the .replace() method with a string
+const str = "Hello, World!";
+const char = str.replace("l","z");
+console.log(char); 

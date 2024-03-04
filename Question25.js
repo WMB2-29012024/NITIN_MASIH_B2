@@ -4,3 +4,8 @@
 */
 
 // Use the .trim() method
+
+
+const string = "   Hello, World!   "
+
+console.log(string.trim())

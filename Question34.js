@@ -4,3 +4,6 @@
 */
 
 // Use the .replaceAll() method with a string
+const str = "Hello, World!";
+const char = str.replaceAll("l","z");
+console.log(char); 

@@ -4,3 +4,6 @@
 */
 
 // Use the .charCodeAt() method
+const str = "Hello, World!";
+const char = str.charCodeAt(5);
+console.log(char); 

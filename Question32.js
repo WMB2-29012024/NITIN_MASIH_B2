@@ -4,3 +4,7 @@
 */
 
 // Use the .search() method
+
+const str = "Hello, World!";
+const char = str.search("e");
+console.log(char); 
