@@ -37,24 +37,18 @@ class Stack {
     return this.removedItem
   }
 }
-const s = "{[()]}";
-function validParentheses(s){
-const stack = new Stack(s.length)
+const s = "Hello, World!"
+function reverseString(s) {
+   const stack = new Stack()
   for (let i = 0; i < s.length; i++) {
-   const currentChar = s[i]
-    if(currentChar==="[" ||currentChar === "{" || currentChar==="("){
-      stack.stackPush(currentChar)
-    }else{
-      const peekElement = stack.peek();
-      if (!stack.isEmpty() && ((currentChar === ']' && peekElement === '[')||(currentChar===')' &&peekElement === '(') || (currentChar==='}' && peekElement === '{'))) {
-        stack.stackPop()
-      }else{
-        return false
-      }
-      console.log(stack)
-    }
-
+    const element = s[i];
+    stack.stackPush(element)
+  }
+   
+ let ans = ""
+   while(!stack.isEmpty()){
+   ans+= stack.stackPop()
+   }
+   return ans
 }
-return stack.isEmpty()
-}
-console.log(validParentheses(s))
+console.log(reverseString(s))
