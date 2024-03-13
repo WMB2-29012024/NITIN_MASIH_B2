@@ -37,20 +37,24 @@ class Stack {
   }
 }
 
-const num = 18
+const input =  "/../"
 
-function binaryConverstion(num){
-  const stack = new Stack(num);
-  let ans =""
- while(num>0){
-  const rem = num%2
-   stack.stackPush(rem);
-   num = Math.floor( num/2)
-   
- }
- while (!stack.isEmpty()) {
-  ans += stack.stackPop() 
- }
- return ans
+function absolutePath(input) {
+  const newInput = input.split("/")
+
+  const stack = new Stack(newInput)
+  for (let i = 0; i < newInput.length; i++) {
+    const element = newInput[i];
+    if (element >= "a" && element <= "z") {
+      stack.stackPush(element)
+    } else if (!stack.isEmpty() && element === '..') {
+      stack.stackPop()
+
+    }
+  }
+  let ans = ""
+  while (!stack.isEmpty()) {
+    ans = "/" + stack.stackPop() + ans
+  } return ans.length ? ans : "/"
 }
-console.log(binaryConverstion(num))
+console.log(absolutePath(input))
