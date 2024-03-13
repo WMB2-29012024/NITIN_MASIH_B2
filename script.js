@@ -1,4 +1,3 @@
-
 class Stack {
   constructor(size) {
     this.stack = [];
@@ -37,18 +36,21 @@ class Stack {
     return this.removedItem
   }
 }
-const s = "Hello, World!"
-function reverseString(s) {
-   const stack = new Stack()
-  for (let i = 0; i < s.length; i++) {
-    const element = s[i];
-    stack.stackPush(element)
-  }
+
+const num = 18
+
+function binaryConverstion(num){
+  const stack = new Stack(num);
+  let ans =""
+ while(num>0){
+  const rem = num%2
+   stack.stackPush(rem);
+   num = Math.floor( num/2)
    
- let ans = ""
-   while(!stack.isEmpty()){
-   ans+= stack.stackPop()
-   }
-   return ans
+ }
+ while (!stack.isEmpty()) {
+  ans += stack.stackPop() 
+ }
+ return ans
 }
-console.log(reverseString(s))
+console.log(binaryConverstion(num))
