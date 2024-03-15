@@ -1,60 +1,80 @@
-class Stack {
-  constructor(size) {
-    this.stack = [];
-    this.maxSize = size
-    this.stackSize = 0
+class Node {
+  // Node class for storing data and 
+  // the reference to the next node
+  constructor(data) {
+      this.data = data;
+      this.next = null;
   }
-
-  peek() {
-    // return the last element
-    // without removing it from stack
-    if (this.stackSize === 0) {
-      return "stack is empty"
+}
+class Queue {
+  // Queue class using linked list
+  constructor() {
+      this.front = null;
+      this.rear = null;
+      this.size = 0;
+  }
+  // Add an element to the rear of the queue
+  enqueue(data) {
+    let newNode = new Node(data);
+    if (this.rear === null) { // queue is empty
+        this.front = this.rear = newNode;
     } else {
-      const lastElem = this.stackPop()
-      this.stackPush(lastElem)
-      return lastElem
+// adding the new node in the next of current rear node
+        this.rear.next = newNode; 
+      
+//. changing the current rear node with the new one
+        this.rear = newNode; 
     }
+    this.size++;
+}
+// Remove an element from the front of the queue
+dequeue() {
+  if (this.front === null) {
+      return null;
   }
-  isEmpty() {
-    return this.stackSize === 0;
+  let temp = this.front;
+  this.front = this.front.next;
+  /** when queue has only 1 element */
+  if (this.front === null) {
+      this.rear = null;
   }
-  stackPush(item) {
-    if (this.stackSize >= this.maxSize) {
-      return new Error("stack overflow")
-    }
-    this.stack.push(item)
-    this.stackSize += 1
-    return this.stackSize
+  this.size--;
+  return temp.data;
+}
+// Get the front element of the queue
+peek() {
+  /** when queue is empty */
+  if (this.front === null) {
+      return null;
   }
-  stackPop() {
-    if (this.stackSize === 0) {
-      return new Error("stack overflow")
-    }
-    this.removedItem = this.stack.pop()
-    this.stackSize -= 1
-    return this.removedItem
-  }
+  return this.front.data;
 }
 
-const input =  "/../"
-
-function absolutePath(input) {
-  const newInput = input.split("/")
-
-  const stack = new Stack(newInput)
-  for (let i = 0; i < newInput.length; i++) {
-    const element = newInput[i];
-    if (element >= "a" && element <= "z") {
-      stack.stackPush(element)
-    } else if (!stack.isEmpty() && element === '..') {
-      stack.stackPop()
-
-    }
-  }
-  let ans = ""
-  while (!stack.isEmpty()) {
-    ans = "/" + stack.stackPop() + ans
-  } return ans.length ? ans : "/"
+// Check if the queue is empty
+isEmpty() {
+  return this.size === 0;
 }
-console.log(absolutePath(input))
+
+// Get the number of elements in the queue
+getSize() {
+  return this.size;
+}
+}
+const input = "madam"
+
+function palindrome(input){
+   const queue = new Queue()
+   const temp = input.toLowerCase().replaceAll(" ","");
+   for (let i = temp.length-1; i >=0; i--) {
+    const element = temp[i];
+    queue.enqueue(element)
+   }
+   let ans = ""
+
+  while (!queue.isEmpty()) {
+      ans += queue.dequeue()
+   
+  }
+    return ans === temp
+}
+console.log(palindrome(input))
