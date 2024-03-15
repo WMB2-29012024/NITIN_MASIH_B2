@@ -60,21 +60,24 @@ getSize() {
   return this.size;
 }
 }
-const input = "madam"
+const array = [1, 2, 3, 1, 4, 5, 2, 3, 6]
+const k = 3
 
-function palindrome(input){
-   const queue = new Queue()
-   const temp = input.toLowerCase().replaceAll(" ","");
-   for (let i = temp.length-1; i >=0; i--) {
-    const element = temp[i];
-    queue.enqueue(element)
-   }
-   let ans = ""
-
-  while (!queue.isEmpty()) {
-      ans += queue.dequeue()
-   
+function maxNumberSubarr(array){
+  const queue = new Queue()
+  let max = Number.MIN_VALUE
+  for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+     
+     max = Math.max(max,element)
+     if (i>=k-1) {
+      queue.enqueue(max)
+     }
   }
-    return ans === temp
+  let arr = []
+  while (!queue.isEmpty()) {
+    arr+=queue.dequeue()
+  }
+  return arr
 }
-console.log(palindrome(input))
+console.log(maxNumberSubarr(array))
